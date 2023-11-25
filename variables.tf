@@ -33,6 +33,12 @@ variable "cluster_name" {
   description = "(Required) Name of the cluster as it appears in Atlas. Once the cluster is created, its name cannot be changed. WARNING Changing the name will result in destruction of the existing cluster and the creation of a new cluster."
 }
 
+variable "cluster_type" {
+  type        = string
+  default     = "REPLICASET"
+  description = "(Required) Atlas provides different instance sizes, each with a default storage capacity and RAM size. The instance size you select is used for all the data-bearing servers in your cluster. Accepted values include: REPLICASET, SHARED, GEOSHARED"
+}
+
 variable "provider_name" {
   type        = string
   default     = "TENANT"
@@ -55,4 +61,16 @@ variable "provider_instance_size_name" {
   type        = string
   default     = "M0"
   description = "(Required) Atlas provides different instance sizes, each with a default storage capacity and RAM size. The instance size you select is used for all the data-bearing servers in your cluster."
+}
+
+variable "node_count" {
+  type        = number
+  default     = 3
+  description = "(Optional) Number of nodes of the given type for MongoDB Atlas to deploy to the region."
+}
+
+variable "priority" {
+  type        = number
+  default     = 7
+  description = "(Optional) Election priority of the region. For regions with only read-only nodes, set this value to 0. The highest priority is 7."
 }
