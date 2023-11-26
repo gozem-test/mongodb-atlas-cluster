@@ -39,6 +39,12 @@ variable "cluster_type" {
   description = "(Required) Atlas provides different instance sizes, each with a default storage capacity and RAM size. The instance size you select is used for all the data-bearing servers in your cluster. Accepted values include: REPLICASET, SHARED, GEOSHARED"
 }
 
+variable "num_shards" {
+  type        = number
+  default     = 1
+  description = "(Optional) Selects whether the cluster is a replica set or a sharded cluster. If you use the replicationSpecs parameter, you must set num_shards."
+}
+
 variable "provider_name" {
   type        = string
   default     = "TENANT"
