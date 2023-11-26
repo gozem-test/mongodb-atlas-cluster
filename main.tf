@@ -18,7 +18,7 @@ resource "mongodbatlas_advanced_cluster" "cluster" {
       }
 
       priority      = var.priority
-      provider_name = var.backing_provider_name
+      provider_name = var.provider_name
       region_name   = var.provider_region_name
     }
   }
