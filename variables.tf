@@ -45,6 +45,11 @@ variable "num_shards" {
   description = "(Optional) Selects whether the cluster is a replica set or a sharded cluster. If you use the replicationSpecs parameter, you must set num_shards."
 }
 
+variable "encryption_at_rest_provider" {
+  type        = string
+  description = "(Optional) Possible values are AWS, GCP, AZURE or NONE. Only needed if you desire to manage the keys. You must configure encryption at rest for the Atlas project before enabling it on any cluster in the project."
+}
+
 variable "provider_name" {
   type        = string
   default     = "TENANT"

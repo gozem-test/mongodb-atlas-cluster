@@ -1,9 +1,10 @@
 # Create MongoDB Atlas Cluster
 resource "mongodbatlas_cluster" "cluster" {
-  project_id   = var.atlas_project_id
-  name         = var.cluster_name
-  cluster_type = var.cluster_type
-  num_shards   = var.num_shards
+  project_id                  = var.atlas_project_id
+  name                        = var.cluster_name
+  cluster_type                = var.cluster_type
+  num_shards                  = var.num_shards
+  encryption_at_rest_provider = var.encryption_at_rest_provider
 
   # Provider Settings "block"
   provider_name               = var.provider_name
